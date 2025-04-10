@@ -41,21 +41,21 @@ function toggleAd() {
     var ad = document.getElementById('sideAd');
     ad.classList.toggle('hide');
 }
-// ✅ عداد مباشر للمشتركين / المتابعين من رابط خارجي (محاكاة)
+// ✅ عداد مباشر باستخدام YouTube Data API
 const counterBox = document.getElementById("counter");
-const incrementValue = 50;
-const targetValue = 55000; 
 
-// رابط العداد الخارجي (هنا سنحاكيه)
-const followersUrl = 'https://www.youtube.com/@AbuSwe7l';
+// ضع مفتاح API هنا
+const apiKey = 'YOUR_API_KEY'; // استبدل بـ مفتاحك
+const channelId = 'UCxxxxxxxxxxxxxxxx'; // استبدل بـ ID قناتك
 
-// وظيفة لجلب العداد من الرابط (هنا محاكاة)
 function fetchFollowerCount() {
-  fetch(followersUrl)
+  const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+  
+  fetch(url)
     .then(response => response.json())
     .then(data => {
-      const currentFollowers = data.followers;
-      updateCounter(currentFollowers);
+      const subscriberCount = data.items[0].statistics.subscriberCount;ؤؤ
+      updateCounter(subscriberCount);
     })
     .catch(error => {
       console.error("Error fetching follower count:", error);
@@ -63,14 +63,11 @@ function fetchFollowerCount() {
 }
 
 function updateCounter(currentFollowers) {
-  if (currentFollowers < targetValue) {
-    currentFollowers += incrementValue;
-    counterBox.innerText = currentFollowers.toLocaleString();
-  } else {
-    counterBox.innerText = targetValue.toLocaleString(); 
-    clearInterval(counterInterval); 
-  }
+  counterBox.innerText = parseInt(currentFollowers).toLocaleString();
 }
 
-// التحديث كل نصف ثانية (500ms)
-const counterInterval = setInterval(() => fetchFollowerCount(), 500);
+// أول تحميل
+fetchFollowerCount();
+
+// تحدث كل دقيقة مثلاً
+setInterval(fetchFollowerCount, 60000); // كل 60 ثانية
