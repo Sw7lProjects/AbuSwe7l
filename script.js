@@ -42,32 +42,32 @@ function toggleAd() {
     ad.classList.toggle('hide');
 }
 // ✅ عداد مباشر باستخدام YouTube Data API
-const counterBox = document.getElementById("counter");
+// const counterBox = document.getElementById("counter");
 
 // ضع مفتاح API هنا
-const apiKey = 'YOUR_API_KEY'; // استبدل بـ مفتاحك
-const channelId = 'UCxxxxxxxxxxxxxxxx'; // استبدل بـ ID قناتك
+// const apiKey = 'YOUR_API_KEY'; // استبدل بـ مفتاحك
+// const channelId = 'UCxxxxxxxxxxxxxxxx'; // استبدل بـ ID قناتك
 
-function fetchFollowerCount() {
-  const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+// function fetchFollowerCount() {
+//  const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
   
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const subscriberCount = data.items[0].statistics.subscriberCount;ؤؤ
-      updateCounter(subscriberCount);
-    })
-    .catch(error => {
-      console.error("Error fetching follower count:", error);
-    });
-}
+//  fetch(url)
+//    .then(response => response.json())
+//    .then(data => {
+//      const subscriberCount = data.items[0].statistics.subscriberCount;ؤؤ
+//      updateCounter(subscriberCount);
+//    })
+//    .catch(error => {
+//      console.error("Error fetching follower count:", error);
+//    });
+// }
 
-function updateCounter(currentFollowers) {
-  counterBox.innerText = parseInt(currentFollowers).toLocaleString();
-}
+// function updateCounter(currentFollowers) {
+//  counterBox.innerText = parseInt(currentFollowers).toLocaleString();
+// }
 
 // أول تحميل
-fetchFollowerCount();
+// fetchFollowerCount();
 
 // تحدث كل دقيقة مثلاً
-setInterval(fetchFollowerCount, 60000); // كل 60 ثانية
+// setInterval(fetchFollowerCount, 60000); // كل 60 ثانية
