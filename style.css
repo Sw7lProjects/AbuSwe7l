@@ -7,6 +7,27 @@
   box-sizing: border-box;
 }
 
+/* الشريط بالكامل */
+::-webkit-scrollbar {
+  width: 8px; /* أو height لو كان أفقي */
+}
+
+/* الخلفية */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* الشريط نفسه */
+::-webkit-scrollbar-thumb {
+  background: #7300d1;
+  border-radius: 5px;
+}
+
+/* عند تمرير الماوس */
+::-webkit-scrollbar-thumb:hover {
+  background: #7300d1;
+}
+
 body {
   font-family: 'Cairo', sans-serif;
   background: linear-gradient(to right, #1a1b2f, #292b45);
@@ -288,4 +309,127 @@ footer {
 @keyframes scroll-horizontal {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* المؤشر */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #c300ff;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out, background-color 0.2s, box-shadow 0.2s;
+  z-index: 2147483647;
+  background-color: rgba(59, 0, 99, 0.6);
+  box-shadow: 
+    0 0 10px rgba(153, 0, 255, 0.6),
+    0 0 25px rgba(153, 0, 255, 0.6),
+    0 0 50px rgba(153, 0, 255, 0.6);
+}
+
+.cursor.hovered {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(59, 0, 99, 0.6);
+  box-shadow: 
+    0 0 15px rgba(153, 0, 255, 0.6),
+    0 0 35px rgba(153, 0, 255, 0.6),
+    0 0 60px rgba(153, 0, 255, 0.6);
+}
+
+/* عند المرور على العناصر */
+.cursor.hovered {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(59, 0, 99, 0.6);
+  box-shadow: 
+    0 0 15px rgba(153, 0, 255, 0.6),
+    0 0 35px rgba(153, 0, 255, 0.6),
+    0 0 60px rgba(153, 0, 255, 0.6);
+}
+
+
+
+::selection {
+  background-color: rgba(59, 0, 99, 0.6);
+  color: #000000;
+  z-index: auto !important;
+}
+
+a::selection {
+  background-color: var(--royal-gold-dark);
+  color: #fff;
+}
+
+
+/* تأثير النقر */
+.click-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(74, 144, 226, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 2147483647;
+  animation: ripple-anim 0.6s ease-out forwards;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
+
+/* شرارة خلف الماوس */
+.star-spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff, rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: sparkle 0.5s ease-out;
+  z-index: 2147483647;
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/*loader*/
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+/* الصورة وسط اللودر */
+.loader img {
+  width: 120px; 
+  animation: pulse 1.5s infinite alternate;
+}
+
+/* حركة ناعمة للصورة */
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(1.1); opacity: 1; }
 }
