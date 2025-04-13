@@ -74,8 +74,6 @@ function toggleAd() {
 
 // mous
 
-
-
 // تأثير النقر
 document.addEventListener("click", (e) => {
   const ripple = document.createElement("div");
@@ -85,17 +83,6 @@ document.addEventListener("click", (e) => {
   document.body.appendChild(ripple);
 
   setTimeout(() => ripple.remove(), 600);
-});
-
-// الشرارة الخلفية
-document.addEventListener("mousemove", (e) => {
-  const star = document.createElement("div");
-  star.className = "star-spark";
-  star.style.left = `${e.clientX}px`;
-  star.style.top = `${e.clientY}px`;
-  document.body.appendChild(star);
-
-  setTimeout(() => star.remove(), 500);
 });
 
 // إخفاء اللودر بعد التحميل
