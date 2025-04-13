@@ -74,38 +74,7 @@ function toggleAd() {
 
 // mous
 
-// حذف أي مؤشر سابق
-document.querySelectorAll(".cursor").forEach(el => el.remove());
 
-// إنشاء المؤشر
-const cursor = document.createElement("div");
-cursor.classList.add("cursor");
-document.body.appendChild(cursor);
-
-// تحريك ناعم
-let mouseX = 0, mouseY = 0;
-let posX = 0, posY = 0;
-
-document.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animateCursor() {
-  posX += (mouseX - posX) * 0.15;
-  posY += (mouseY - posY) * 0.15;
-  cursor.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// تفاعل مع العناصر
-const hoverElements = document.querySelectorAll("a, button, h1, h2, h3, .icons a, p, .profile-info");
-
-hoverElements.forEach(el => {
-  el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
-  el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
-});
 
 // تأثير النقر
 document.addEventListener("click", (e) => {
