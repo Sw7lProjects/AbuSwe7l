@@ -332,30 +332,6 @@ footer {
   }
 }
 
-/* شرارة خلف الماوس */
-.star-spark {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #fff, rgba(255, 255, 255, 0));
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  animation: sparkle 0.5s ease-out;
-  z-index: 2147483647;
-}
-
-@keyframes sparkle {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(2);
-  }
-}
-
 /*loader*/
 .loader {
   position: fixed;
