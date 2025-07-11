@@ -145,6 +145,19 @@
 </head>
 <body class="bg-gradient-to-br from-[#23213a] via-[#2d2850] to-[#6d6aff] bg-fixed text-white animate-gradient-xy">
   <main class="min-h-screen flex items-center justify-center px-4 py-10">
+      <!-- إعلان كود جاهز -->
+      <div style="position: fixed; top: 32px; right: 32px; z-index: 50;">
+        <div class="relative bg-gradient-to-l from-red-600 via-red-500 to-red-400 rounded-2xl shadow-2xl px-8 py-5 flex items-center gap-5 min-w-[340px] max-w-xl border-2 border-[#fff5]">
+          <img src="img/jahez.jpg" alt="Jahez" class="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md bg-white object-cover">
+          <div class="flex flex-col">
+            <span class="text-white font-extrabold text-lg mb-1">
+              استخدم كود <span class="bg-white/20 px-3 py-1 rounded-lg text-yellow-200 font-mono text-xl tracking-widest">AS7</span> في تطبيق جاهز
+            </span>
+            <span class="text-yellow-200 font-bold text-base">واحصل على الخصم!</span>
+          </div>
+          <button onclick="this.parentElement.style.display='none'" class="absolute top-2 left-3 text-white text-2xl font-bold hover:text-yellow-300 transition">&times;</button>
+        </div>
+      </div>
     <section class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 md:p-14 w-full max-w-2xl glow">
       <div class="text-center mb-10">
         <img src="img/logo.gif" alt="Logo" class="w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-[#a78bfa] mx-auto mb-4 shadow-lg">
