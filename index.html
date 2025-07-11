@@ -141,21 +141,109 @@
       margin: 0 auto;
       opacity: 0.92;
     }
+
+    .ad-banner {
+      background: linear-gradient(135deg, #e11d48 0%, #a21caf 100%);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px 0 #6d6aff33, 0 2px 8px 0 #0002;
+      border: 2px solid #fff5;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 2.2rem 1.2rem 2.2rem;
+      min-width: 340px;
+      max-width: 420px;
+      position: relative;
+    }
+    .jahez-banner {
+      background: linear-gradient(135deg, #e11d48 0%, #fbbf24 100%);
+    }
+    .tecsh-banner {
+      background: linear-gradient(135deg, #be185d 0%, #a21caf 100%);
+    }
+    .ad-img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1.2rem;
+      border: 2px solid #fff;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 2px 12px #0002;
+    }
+    .ad-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+    .ad-title {
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.15rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+    .ad-code {
+      background: #fff2;
+      color: #fde047;
+      font-family: monospace;
+      font-size: 1.2rem;
+      padding: 0.2em 0.7em;
+      border-radius: 0.6em;
+      margin: 0 0.2em;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+    }
+    .ad-subtitle {
+      color: #fde047;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .ad-close {
+      position: absolute;
+      top: 0.7rem;
+      left: 0.9rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+      z-index: 10;
+    }
+    .ad-close:hover {
+      color: #fde047;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#23213a] via-[#2d2850] to-[#6d6aff] bg-fixed text-white animate-gradient-xy">
   <main class="min-h-screen flex items-center justify-center px-4 py-10">
       <!-- إعلان كود جاهز -->
-      <div style="position: fixed; top: 32px; right: 32px; z-index: 50;">
-        <div class="relative bg-gradient-to-l from-red-600 via-red-500 to-red-400 rounded-2xl shadow-2xl px-8 py-5 flex items-center gap-5 min-w-[340px] max-w-xl border-2 border-[#fff5]">
-          <img src="img/jahez.jpg" alt="Jahez" class="w-16 h-16 rounded-full border-2 border-yellow-400 shadow-md bg-white object-cover">
-          <div class="flex flex-col">
+      <div class="fixed top-8 right-8 z-50">
+        <div class="flex items-center gap-4 bg-gradient-to-l from-red-600 via-yellow-400 to-red-500 rounded-2xl shadow-2xl px-8 py-5 min-w-[340px] max-w-xl border-2 border-white/30 relative">
+          <img src="img/jahez.jpg" alt="Jahez" class="w-12 h-12 rounded-xl border-2 border-white shadow object-cover bg-red-600">
+          <div class="flex flex-col flex-1">
             <span class="text-white font-extrabold text-lg mb-1">
               استخدم كود <span class="bg-white/20 px-3 py-1 rounded-lg text-yellow-200 font-mono text-xl tracking-widest">AS7</span> في تطبيق جاهز
             </span>
             <span class="text-yellow-200 font-bold text-base">واحصل على الخصم!</span>
           </div>
-          <button onclick="this.parentElement.style.display='none'" class="absolute top-2 left-3 text-white text-2xl font-bold hover:text-yellow-300 transition">&times;</button>
+          <button onclick="this.parentElement.parentElement.style.display='none'" class="absolute top-2 left-3 text-white text-2xl font-bold hover:text-yellow-300 transition">&times;</button>
+        </div>
+      </div>
+
+      <!-- إعلان تيكش Tecsh -->
+      <div class="fixed right-8 z-50 mt-8" style="top: 120px;">
+        <div class="flex items-center gap-4 bg-gradient-to-l from-pink-700 via-pink-500 to-pink-400 rounded-2xl shadow-2xl px-8 py-5 min-w-[340px] max-w-xl border-2 border-white/30 relative">
+          <img src="img/tecsh.webp" alt="Tecsh" class="w-12 h-12 rounded-xl border-2 border-white shadow object-cover bg-pink-700">
+          <div class="flex flex-col flex-1">
+            <span class="text-white font-extrabold text-lg mb-1">
+              تيكش يوفر لكم منتجات مميزة ذات جودة عالية تلبي احتياجات اللاعبين وصناع المحتوى
+            </span>
+            <span class="text-yellow-200 font-bold text-base">وأسعار منافسة!</span>
+          </div>
+          <button onclick="this.parentElement.parentElement.style.display='none'" class="absolute top-2 left-3 text-white text-2xl font-bold hover:text-yellow-300 transition">&times;</button>
         </div>
       </div>
     <section class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 md:p-14 w-full max-w-2xl glow">
